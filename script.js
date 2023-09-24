@@ -4,9 +4,9 @@ let taskList = document.getElementById("taskList");
 
 
 addTask.addEventListener('click', function(){
-    const a = document.createElement("li");
-    const c = document.createElement("button");
-    const b = todoInput.value;
+    let a = document.createElement("li");
+    let b = todoInput.value;
+    let c = document.createElement("button");
     
     a.innerHTML = b;
     c.innerHTML = "x";
@@ -16,8 +16,10 @@ addTask.addEventListener('click', function(){
 
     a.addEventListener('click', function(){
         a.classList.toggle('done');
+    });
 
-        
+    c.addEventListener('click', function(){
+        taskList.removeChild(a);
     });
 });
 
