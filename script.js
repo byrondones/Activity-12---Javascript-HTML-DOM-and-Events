@@ -3,21 +3,22 @@ let addTask = document.getElementById("addTask");
 let taskList = document.getElementById("taskList");
 
 
+addTask.addEventListener('click', function(){
+    const a = document.createElement("li");
+    const c = document.createElement("button");
+    const b = todoInput.value;
+    
+    a.innerHTML = b;
+    c.innerHTML = "x";
 
-function addTaskClick(){
-let a = document.createElement("li");
-let c = document.createElement("button");
-let b = todoInput.value;
+    taskList.appendChild(a);
+    a.appendChild(c)
 
-a.innerHTML = b;
-c.innerHTML = "x";
+    a.addEventListener('click', function(){
+        a.classList.toggle('done');
 
-taskList.appendChild(a);
-a.appendChild(c)
-};
+        
+    });
+});
 
-function slashTask(event){
 
-};
-
-addTask.addEventListener("click", addTaskClick);
