@@ -2,25 +2,30 @@ let todoInput = document.getElementById("todoInput");
 let addTask = document.getElementById("addTask");
 let taskList = document.getElementById("taskList");
 
-
+//added a listener to addTask button and 
 addTask.addEventListener('click', function(){
-    let a = document.createElement("li");
-    let b = todoInput.value;
-    let c = document.createElement("button");
+
+if(todoInput.value === ''){
+    alert("Please enter a Task!")
+} else {
+    let addList = document.createElement("li");
+    let inputValue = todoInput.value;
+    let removeButton = document.createElement("button");
     
-    a.innerHTML = b;
-    c.innerHTML = "x";
+    addList.innerHTML = inputValue;
+    removeButton.innerHTML = "x";
 
-    taskList.appendChild(a);
-    a.appendChild(c)
+    taskList.appendChild(addList);
+    addList.appendChild(removeButton)
 
-    a.addEventListener('click', function(){
-        a.classList.toggle('done');
+    addList.addEventListener('click', function(){
+        addList.classList.toggle('done');
     });
 
-    c.addEventListener('click', function(){
-        taskList.removeChild(a);
+    removeButton.addEventListener('click', function(){
+        taskList.removeChild(addList);
     });
+}
 });
 
 
